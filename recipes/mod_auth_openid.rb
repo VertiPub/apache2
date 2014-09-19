@@ -81,6 +81,7 @@ remote_file "#{Chef::Config['file_cache_path']}/mod_auth_openid-#{version}.tar.g
 #  end
   mode 0644
   checksum _checksum
+  not_if { ::File.exists?("#{Chef::Config['file_cache_path']}/mod_auth_openid-#{version}.tar.gz") }
 end
 
 bash "install mod_auth_openid" do
